@@ -1,4 +1,4 @@
-# task_1_1.py - знакомство с модулями
+
 import sys
 
 print("Версия Python:", sys.version.split()[0])
