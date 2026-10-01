@@ -1,0 +1,21 @@
+ pip install "packaging==24.0"
+ pip install "packaging==21.0"
+ python -c "import packaging; print(packaging.__version__)"
+
+
+ mkdir project_a project_b
+ python3 -m venv project_a/.venv
+ python3 -m venv project_b/.venv
+
+ source project_a/.venv/bin/activate
+ pip install -q "packaging==21.0"
+python -c "import packaging; print('A:', packaging.__version__)"
+deactivate
+
+source project_b/.venv/bin/activate
+ pip install -q "packaging==24.0"
+ python -c "import packaging; print('B:', packaging.__version__)"
+ deactivate
+
+
+ diff <(project_a/.venv/bin/pip freeze) <(project_b/.venv/bin/pip freeze)
